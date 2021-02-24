@@ -7,7 +7,7 @@ import com.dzakyhdr.filmapp.data.repository.tvshow.datasource.TvShowLocalDataSou
 import com.dzakyhdr.filmapp.data.repository.tvshow.datasource.TvShowRemoteDataSource
 import com.dzakyhdr.filmapp.domain.repository.TvShowRepository
 
-class TvShowRepository(
+class TvShowRepositoryImpl(
     private val tvShowRemoteDataSource: TvShowRemoteDataSource,
     private val tvShowLocalDataSource: TvShowLocalDataSource,
     private val tvShowCacheDataSource: TvShowCacheDataSource

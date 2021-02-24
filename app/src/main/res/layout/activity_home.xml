@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".presentation.HomeActivity">
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_movies"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:background="@drawable/btn_rounded"
+            android:text="Movies"
+            app:layout_constraintBottom_toTopOf="@+id/btn_tvShow"
+            app:layout_constraintEnd_toEndOf="@+id/btn_tvShow"
+            app:layout_constraintStart_toStartOf="@+id/btn_tvShow"
+            app:layout_constraintTop_toTopOf="@+id/guideline2" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_tvShow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/btn_rounded"
+            android:text="TV Show"
+            app:layout_constraintBottom_toTopOf="@+id/btn_artist"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_movies" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_artist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:textColor="@color/white"
+            android:background="@drawable/btn_rounded"
+            android:text="Artist"
+            app:layout_constraintEnd_toEndOf="@+id/btn_tvShow"
+            app:layout_constraintStart_toStartOf="@+id/btn_tvShow"
+            app:layout_constraintTop_toBottomOf="@+id/btn_tvShow" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="245dp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
