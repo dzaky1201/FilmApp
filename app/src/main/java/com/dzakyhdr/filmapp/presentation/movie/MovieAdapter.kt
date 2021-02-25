@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.dzakyhdr.filmapp.R
 import com.dzakyhdr.filmapp.data.model.movie.Movie
-import com.dzakyhdr.filmapp.databinding.ListItemBinding
+import com.dzakyhdr.filmapp.databinding.ListMovieItemBinding
 
 class MovieAdapter : RecyclerView.Adapter<MyViewHolder>() {
     private val movieList = ArrayList<Movie>()
@@ -19,9 +19,9 @@ class MovieAdapter : RecyclerView.Adapter<MyViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
-        val binding: ListItemBinding = DataBindingUtil.inflate(
+        val binding: ListMovieItemBinding = DataBindingUtil.inflate(
             layoutInflater,
-            R.layout.list_item,
+            R.layout.list_movie_item,
             parent,
             false
         )
@@ -37,7 +37,7 @@ class MovieAdapter : RecyclerView.Adapter<MyViewHolder>() {
     }
 }
 
-class MyViewHolder(private val binding: ListItemBinding) : RecyclerView.ViewHolder(binding.root) {
+class MyViewHolder(private val binding: ListMovieItemBinding) : RecyclerView.ViewHolder(binding.root) {
     fun bind(movie: Movie) {
         binding.txtTitle.text = movie.title
         binding.txtDesription.text = movie.overview

@@ -3,6 +3,9 @@ package com.dzakyhdr.filmapp.presentation.movie
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
@@ -38,6 +41,37 @@ class MovieActivity : AppCompatActivity() {
         binding.rvMovie.adapter = adapter
 
         displayPopularMovie()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        val inflater: MenuInflater = menuInflater
+        inflater.inflate(R.menu.update, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when(item.itemId){
+            R.id.action_update -> {
+                updateMovies()
+                return true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+
+    }
+
+    private fun updateMovies() {
+        binding.loadingMovie.visibility = View.VISIBLE
+        val response = viewModel.updateMovies()
+        response.observe(this, {
+            if (it != null){
+                adapter.setList(it)
+                adapter.notifyDataSetChanged()
+                binding.loadingMovie.visibility = View.GONE
+            } else {
+                binding.loadingMovie.visibility = View.GONE
+            }
+        })
     }
 
     private fun displayPopularMovie() {
